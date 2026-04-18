@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "axios": "^1.13.3",
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.16.2"
+  }
+}

@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-blue-600 text-white font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-2xl bg-white text-slate-700 border-2 border-slate-200 shadow-sm hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-400 transition-all duration-150 disabled:bg-slate-100 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-white rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 transition-all duration-300;
+  }
+}
+
+@layer base {
+  body {
+    @apply selection:bg-slate-200 selection:text-slate-900;
+  }
+}
+
+@layer components {
+
+  /* Page chrome */
+  .page-shell {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .page-header {
+    @apply mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .page-title {
+    @apply text-3xl font-black tracking-tight text-slate-900;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-slate-500;
+  }
+
+  /* Dashboard-theme cards */
+  .card {
+    @apply bg-white rounded-[2.5rem] border border-slate-100/50 shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden p-8;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-muted {
+    @apply bg-slate-50/80;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-400 transition-all duration-150 disabled:bg-slate-100 disabled:cursor-not-allowed;
+  }
+
+  /* Tables */
+  .table-shell {
+    @apply overflow-hidden rounded-2xl border border-slate-100 bg-white/90 backdrop-blur;
+  }
+
+  .table {
+    @apply min-w-full divide-y divide-slate-100;
+  }
+
+  .table thead {
+    @apply bg-slate-50/80;
+  }
+
+  .table th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+
+  .table td {
+    @apply px-4 py-3 text-sm text-slate-700 align-middle;
+  }
+
+  .table tbody tr {
+    @apply odd:bg-white even:bg-slate-50/40 hover:bg-slate-50 transition-colors;
+  }
+
+  /* Badges / status pills */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-50 text-emerald-700 ring-emerald-200;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-50 text-amber-700 ring-amber-200;
+  }
+
+  .badge-danger {
+    @apply badge bg-rose-50 text-rose-700 ring-rose-200;
+  }
+
+  .badge-info {
+    @apply badge bg-sky-50 text-sky-700 ring-sky-200;
+  }
+
+  /* Chips for quick actions */
+  .action-chip {
+    @apply flex flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-4 text-center text-sm text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all duration-150;
+  }
+
+  /* Dashboard-theme section heading */
+  .section-title {
+    @apply text-lg font-semibold text-slate-800 mb-4;
+  }
+
+  /* Link style matching dashboard */
+  .link-primary {
+    @apply text-blue-600 hover:text-blue-800 font-bold transition-colors;
+  }
+
+  /* Smooth transition when only content area changes (tab / in-content navigation) */
+  .content-area {
+    animation: contentFadeIn 0.2s ease-out;
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Staggered fade-in for grid items (filter results) */
+@keyframes gridItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-item-enter {
+  animation: gridItemFadeIn 0.35s ease-out forwards;
+}
+
+.empty-state-enter {
+  animation: contentFadeIn 0.35s ease-out forwards;
+}
